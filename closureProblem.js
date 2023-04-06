@@ -9,8 +9,8 @@ function setupHelp() {
     { id: "age", help: "age(>16)" },
   ];
 
-  for (var i = 0; i < helpText.length; i++) {
-    var item = helpText[i];
+  for (let i = 0; i < helpText.length; i++) {
+    let item = helpText[i];
     document.getElementById(item.id).onfocus = function () {
       showHelp(item.help);
     };
