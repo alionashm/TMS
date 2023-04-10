@@ -49,6 +49,33 @@
   }
   getSumNumbers(2021);
 })();
+(function () {
+  function getSumNumbers(mynum) {
+    let mysumm = 0;
+    for (let i = 0; i < mynum.length; i++) {
+      mysumm += Number(mynum[i]);
+    }
+    alert("Сумма цифр числа " + mynum + " равна " + mysumm);
+  }
+
+  let cipher2 = prompt("Задача 2. Сумму цифр какого числа будем складывать?");
+  getSumNumbers(cipher2);
+})();
+(function () {
+  let num;
+  function getSumNumbers(num) {
+    let sum = 0,
+      n;
+    while (num) {
+      n = num % 10;
+      num = (num - n) / 10;
+      sum += n;
+    }
+    return sum;
+  }
+
+  console.log(getSumNumbers(2021));
+})();
 // task 3
 /*Написать функцию **`getSum`** которая принимает два целых числа a и b, которые могут быть положительными или отрицательными, найти сумму всех чисел между ними, включая их, и вернуть ее. Если два числа равны, верните a или b.
  */
@@ -73,9 +100,83 @@
   let b = parseInt(prompt("Enter b"));
   getSum(a, b);
 })();
+(function () {
+  let a, b;
+  function getSumSum(a, b) {
+    let sum = 0;
+    if (a < b) {
+      for (let i = a; i <= b; i++) {
+        sum += i;
+      }
+      return sum;
+    } else if (a > b) {
+      for (let i = b; i <= a; i++) {
+        sum += i;
+      }
+      return sum;
+    } else if ((a = b)) {
+      return a;
+    }
+  }
+  console.log(getSumSum(1, 0));
+})();
+(function () {
+  function getSum_TASK3(a, b) {
+    let mysumm = 0;
+    for (let i = a; i <= b; i++) {
+      mysumm += Number(i);
+    }
+    if (a !== b) {
+      alert("Сумма чисел от " + a + " до " + b + " равна " + mysumm);
+    } else {
+      alert("Оба числа равны " + a);
+    }
+  }
+
+  let a = prompt("Задача 3. От какого числа будем складывать?");
+  let b = prompt("Задача 3. До какого числа будем складывать?");
+  getSum_TASK3(a, b);
+})();
+//arrow
+(function () {
+  const vit = (aa, bb) => {
+    let mysumm = 0;
+    for (let i = aa; i <= bb; i++) {
+      mysumm += Number(i);
+    }
+    if (aa !== bb) {
+      alert("Сумма чисел от " + aa + " до " + bb + " равна " + mysumm);
+    } else {
+      alert("Оба числа равны " + aa);
+    }
+  };
+
+  let aa = prompt("Задача 3. От какого числа будем складывать?");
+  let bb = prompt("Задача 3. До какого числа будем складывать?");
+  vit(aa, bb);
+})();
 // task 4
 /*Написать функцию, которая принимает n-ое кол-во строк, но не меньше двух, и выводит пользователю каждую строку столько раз, в каком порядке эта строка была передана в функцию
  */
+(function () {
+  function repeatwords() {
+    if (arguments.length < 2) {
+      console.log("not enough");
+      return;
+    }
+    let output = "";
+    for (let i = 0; i < arguments.length; i++) {
+      for (let j = 0; j <= i; j++) {
+        output += arguments[i];
+      }
+      if (i !== arguments.length - 1) {
+        output += ", ";
+      }
+    }
+    alert(output);
+  }
+  repeatwords("one", "two", "three", "four");
+})();
 (function () {
   function foo(...args) {
     if (args.length <= 1) {
@@ -111,7 +212,7 @@
 
   foo("one", "two", "three");
 })();
-// task 5
+// task 5.1
 /*Найдите в массиве первое четное число */
 (function () {
   const numbers = [5, 9, 13, 24, 54, 10, 13, 99, 1, 5];
@@ -126,7 +227,7 @@
   declaration(numbers);
 })();
 
-// task 5.1
+// task 5.2
 (function () {
   const numbers = [5, 9, 13, 24, 54, 10, 13, 99, 1, 5];
   let findEvenNumber = (numbers) => {
@@ -138,4 +239,9 @@
     }
   };
   findEvenNumber(numbers);
+})();
+(function () {
+  const numbers = [5, 9, 13, 24, 54, 10, 13, 99, 1, 5];
+  const evenNumber = numbers.find((number) => number % 2 === 0);
+  alert("First even - " + evenNumber);
 })();
